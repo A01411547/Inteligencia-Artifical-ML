@@ -1,10 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 #lectura de datos
-data = pd.read_csv('dataset.csv')
-X = data.iloc[:, 0]
-Y = data.iloc[:, 1]
 
+names = ["fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality"]
+
+# I read the dataset and store it in a dataframe from pandas
+df = pd.read_csv('winequality-red (1).csv',names=names , sep=';')
+
+# I select alcohol and ph as my independent variables
+X = df['alcohol']
+# The wine quality will be the dependent variable, the one to be predicted
+Y = df['quality']
 # valores iniciales
 m = 0
 b = 0
